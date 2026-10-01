@@ -27,7 +27,7 @@
         .card .icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
         .card h3 { color: #2e6f40; margin-bottom: 10px; }
 
-        /* Nouvelles sections de contenu */
+        /* Sections de contenu */
         .info-section { display: flex; align-items: center; gap: 40px; background: #eaf5ec; padding: 30px; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
         .info-section.reverse { flex-direction: row-reverse; background: #f0f7f4; }
         .info-content { flex: 1; }
@@ -42,7 +42,13 @@
             .info-image { width: 100%; min-width: 100%; height: 200px; }
         }
         
-        footer { text-align: center; padding: 30px; color: #718096; font-size: 0.9rem; margin-top: 60px; border-top: 1px solid #e2e8f0; }
+        /* Nouveau pied de page stylisé */
+        footer { background-color: #1e4620; color: #f7fafd; padding: 40px 20px; text-align: center; margin-top: 60px; font-size: 0.95rem; border-top: 4px solid #2e6f40; }
+        footer h4 { color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+        footer p { max-width: 600px; margin: 0 auto 15px auto; opacity: 0.9; }
+        footer a { color: #81e6d9; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+        footer a:hover { color: #ffffff; text-decoration: underline; }
+        footer .copyright { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -92,7 +98,7 @@
         <!-- Section 1 : La Sologne Sauvage -->
         <section class="info-section">
             <div class="info-image">
-                <img src="https://unsplash.com" alt="Étang en Sologne">
+                <img src="https://wikimedia.org" alt="La Sologne Sauvage - Étang">
             </div>
             <div class="info-content">
                 <h2>La Sologne Sauvage</h2>
@@ -103,7 +109,7 @@
         <!-- Section 2 : Une biodiversité riche -->
         <section class="info-section reverse">
             <div class="info-image">
-                <img src="https://unsplash.com" alt="Faune sauvage buisson">
+                <img src="https://wikimedia.org" alt="Chevreuil en Sologne">
             </div>
             <div class="info-content">
                 <h2>Une biodiversité riche</h2>
@@ -115,13 +121,12 @@
     </main>
 
     <footer>
-        <p>&copy; À propos de l'auteur
-
-Ce site est un atlas naturaliste indépendant réalisé par Nathan Bordas, passionné de biodiversité dans le Loir-et-Cher.
-
-📧 Contact : nathan.bordas04@gmail.com
-
-© 2026 - Échos de la Nature 41 - Tous droits réservés. 🍃</p>
+        <h4>À propos de l'auteur</h4>
+        <p>Ce site est un atlas naturaliste indépendant réalisé par Nathan Bordas, passionné de biodiversité dans le Loir-et-Cher.</p>
+        <p>📧 Contact : <a href="mailto:nathan.bordas04@gmail.com">nathan.bordas04@gmail.com</a></p>
+        <div class="copyright">
+            <p>&copy; 2026 - Échos de la Nature 41 - Tous droits réservés.</p>
+        </div>
     </footer>
 
 </body>
