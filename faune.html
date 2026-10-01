@@ -35,11 +35,10 @@
         .spider-content { flex: 1.5; font-size: 1.1rem; color: #2d3748; text-align: justify; }
         .spider-content strong { color: #000000; font-weight: bold; }
 
-        /* Grille des 7 catégories d'animaux */
-        .grid-animals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 50px; }
+        /* Grille des 7 catégories d'animaux centrée */
+        .grid-animals { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 50px; }
         
-        /* Ajustement pour que la deuxième ligne de 3 cartes soit centrée */
-        .grid-animals .animal-card:nth-child(5) { grid-column: 1 / 2; }
+        .animal-card { background: transparent; text-align: center; display: flex; flex-direction: column; align-items: center; width: calc(25% - 20px); min-width: 220px; }
         
         .animal-card { background: transparent; text-align: center; display: flex; flex-direction: column; align-items: center; }
         
