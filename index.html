@@ -12,20 +12,35 @@
         header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
         header p { font-size: 1.1rem; opacity: 0.9; font-style: italic; }
 
-        nav { background-color: #ffffff; display: flex; justify-content: center; gap: 15px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); sticky: top; }
+        nav { background-color: #ffffff; display: flex; justify-content: center; gap: 15px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         nav a { color: #2e6f40; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; }
         nav a:hover { background-color: #eaf5ec; color: #1e4620; }
 
         main { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        .welcome-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid #2e6f40; }
+        .welcome-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid #2e6f40; margin-bottom: 40px; }
         .welcome-card h2 { color: #1e4620; margin-bottom: 15px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 50px; }
         .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center; border: 1px solid #e2e8f0; transition: transform 0.2s; }
         .card:hover { transform: translateY(-5px); }
         .card .icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
         .card h3 { color: #2e6f40; margin-bottom: 10px; }
+
+        /* Nouvelles sections de contenu */
+        .info-section { display: flex; align-items: center; gap: 40px; background: #eaf5ec; padding: 30px; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .info-section.reverse { flex-direction: row-reverse; background: #f0f7f4; }
+        .info-content { flex: 1; }
+        .info-content h2 { font-family: 'Georgia', serif; font-size: 2.2rem; color: #2e6f40; margin-bottom: 20px; font-style: italic; }
+        .info-content p { color: #4a5568; font-size: 1.05rem; margin-bottom: 15px; text-align: justify; }
+        .info-content strong { color: #1e4620; }
+        .info-image { flex: 1; min-width: 300px; height: 280px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .info-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        @media (max-width: 768px) {
+            .info-section, .info-section.reverse { flex-direction: column; text-align: center; }
+            .info-image { width: 100%; min-width: 100%; height: 200px; }
+        }
         
         footer { text-align: center; padding: 30px; color: #718096; font-size: 0.9rem; margin-top: 60px; border-top: 1px solid #e2e8f0; }
     </style>
@@ -73,6 +88,30 @@
                 <p>Les plus beaux sites naturels protégés du 41.</p>
             </div>
         </div>
+
+        <!-- Section 1 : La Sologne Sauvage -->
+        <section class="info-section">
+            <div class="info-image">
+                <img src="https://unsplash.com" alt="Étang en Sologne">
+            </div>
+            <div class="info-content">
+                <h2>La Sologne Sauvage</h2>
+                <p>Région naturelle emblématique du Loir-et-Cher, la Sologne s’étend sur de vastes étendues boisées et mystérieuses. Elle abrite des <strong>milliers d’étangs</strong>, de grandes forêts de pins et de chênes, ainsi que des landes de bruyère. C’est un véritable refuge pour la faune, où s’épanouissent les grands cervidés, le sanglier, et une multitude d’oiseaux d’eau.</p>
+            </div>
+        </section>
+
+        <!-- Section 2 : Une biodiversité riche -->
+        <section class="info-section reverse">
+            <div class="info-image">
+                <img src="https://unsplash.com" alt="Faune sauvage buisson">
+            </div>
+            <div class="info-content">
+                <h2>Une biodiversité riche</h2>
+                <p>Il y a des <strong>milliers d’espèces sauvages</strong> observables en Sologne et dans l’ensemble du Loir-et-Cher.</p>
+                <p>Notre atlas vous propose de partir à la découverte de cette richesse unique à travers des fiches d’identification claires sur la faune, la flore et les champignons de notre territoire.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
