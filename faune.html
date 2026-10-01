@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faune - Échos de la Nature (41)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7fafd; color: #2d3748; line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #1e4620, #2e6f40); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        header p { font-size: 1.1rem; opacity: 0.9; font-style: italic; }
+
+        nav { background-color: #ffffff; display: flex; justify-content: center; gap: 15px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #2e6f40; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; }
+        nav a:hover, nav a.active { background-color: #eaf5ec; color: #1e4620; }
+
+        /* Style de la bannière faune */
+        .faune-banner { width: 100%; height: 300px; position: relative; background-color: #1e4620; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .faune-banner img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+        .faune-banner h2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Georgia', serif; font-size: 4rem; font-style: italic; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); font-weight: normal; }
+
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        /* Section de présentation verte */
+        .intro-section { background-color: #d8ebd9; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .intro-text-top { font-size: 1.15rem; color: #1e4620; font-weight: 500; text-align: justify; margin-bottom: 30px; }
+        .intro-text-top strong { color: #000000; font-weight: bold; }
+
+        /* Bloc avec l'araignée sauteuse */
+        .spider-block { display: flex; align-items: center; gap: 40px; }
+        .spider-image { flex: 1; height: 260px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .spider-image img { width: 100%; height: 100%; object-fit: cover; }
+        .spider-content { flex: 1.5; font-size: 1.1rem; color: #2d3748; text-align: justify; }
+        .spider-content strong { color: #000000; font-weight: bold; }
+
+        /* Grille des 7 catégories d'animaux */
+        .grid-animals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 50px; }
+        
+        /* Ajustement pour que la deuxième ligne de 3 cartes soit centrée */
+        .grid-animals .animal-card:nth-child(5) { grid-column: 1 / 2; }
+        
+        .animal-card { background: transparent; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        
+        .animal-image-wrapper { width: 100%; height: 180px; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 12px; }
+        .animal-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .animal-card h3 { font-size: 1.1rem; color: #1e4620; font-weight: 600; font-family: 'Segoe UI', sans-serif; margin-bottom: 12px; letter-spacing: 0.5px; }
+        
+        .btn-par-ici { background-color: #1a4d66; color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; padding: 10px 0; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background-color 0.2s; text-align: center; }
+        .btn-par-ici:hover { background-color: #113444; }
+
+        /* Responsive : 2 colonnes sur tablette, 1 colonne sur mobile */
+        @media (max-width: 900px) {
+            .grid-animals { grid-template-columns: repeat(2, 1fr); }
+            .grid-animals .animal-card:nth-child(5) { grid-column: auto; }
+        }
+        @media (max-width: 768px) {
+            .faune-banner h2 { font-size: 2.8rem; }
+            .spider-block { flex-direction: column; }
+            .spider-image { width: 100%; height: 200px; }
+        }
+        @media (max-width: 500px) {
+            .grid-animals { grid-template-columns: 1fr; }
+        }
+
+        /* Pied de page stylisé */
+        footer { background-color: #1e4620; color: #f7fafd; padding: 40px 20px; text-align: center; margin-top: 60px; font-size: 0.95rem; border-top: 4px solid #2e6f40; }
+        footer h4 { color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+        footer p { max-width: 600px; margin: 0 auto 15px auto; opacity: 0.9; }
+        footer a { color: #81e6d9; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+        footer a:hover { color: #ffffff; text-decoration: underline; }
+        footer .copyright { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Échos de la Nature (41)</h1>
+        <p>Atlas de la biodiversité du Loir-et-Cher : Sologne, Perche et Vallées</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="faune.html" class="active">Faune</a>
+        <a href="#">Flore</a>
+        <a href="#">Champignons</a>
+        <a href="#">Espaces Naturels</a>
+    </nav>
+
+    <!-- Grande Bannière -->
+    <div class="faune-banner">
+        <img src="images/banniere.jpg" alt="Bannière Faune sauvage - Grands Cervidés">
+        <h2>Faune</h2>
+    </div>
+
+    <main>
+        <!-- Section verte globale -->
+        <div class="intro-section">
+            <p class="intro-text-top">
+                Le Loir-et-Cher possède une faune sauvage d'une richesse incroyable. Grâce à la diversité de ses milieux naturels, des <strong>milliers d'espèces</strong> d'insectes, de mammifères, d'oiseaux, de reptiles et de poissons cohabitent sur notre territoire. Choisissez une catégorie ci-dessous pour explorer l'atlas complet des animaux de notre département.
+            </p>
+
+            <!-- Bloc Araignée Sauteuse -->
+            <div class="spider-block">
+                <div class="spider-image">
+                    <img src="images/araignee-sauteuse.jpg" alt="Petite araignée sauteuse en Sologne">
+                </div>
+                <div class="spider-content">
+                    <p>De la majestueuse <strong>forêt de Sologne</strong> aux îles de la <strong>Loire sauvage</strong>, chaque espace offre un refuge unique. Les grands massifs forestiers abritent les grands cervidés et les sangliers, tandis que le fleuve et les étangs accueillent le discret castor d'Europe et une multitude d'oiseaux migrateurs. Dans les airs, les landes et les prairies, des milliers d'espèces d'insectes, des papillons colorés aux libellules des zones humides, forment le maillon invisible mais capital de notre écosystème.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grille des 7 catégories d'animaux -->
+        <div class="grid-animals">
+            
+            <!-- 1. Amphibiens -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/grenouille.jpg" alt="Amphibiens">
+                </div>
+                <h3>Amphibiens</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 2. Les Araignées -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/araignees.jpg" alt="Les Araignées">
+                </div>
+                <h3>Les Araignées</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 3. Les Insectes -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/insecte.jpg" alt="Les Insectes">
+                </div>
+                <h3>Les Insectes</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 4. Les Mammifères -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/mammifere.jpg" alt="Les Mammifères">
+                </div>
+                <h3>Les Mammifères</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 5. Les Oiseaux -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/oiseau.jpg" alt="Les Oiseaux">
+                </div>
+                <h3>Les Oiseaux</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 6. Les Poissons -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/poisson.jpg" alt="Les Poissons">
+                </div>
+                <h3>Les Poissons</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 7. Les Reptiles -->
+            <div class="animal-card">
+                <div class="animal-image-wrapper">
+                    <img src="images/reptile.jpg" alt="Les Reptiles">
+                </div>
+                <h3>Les Reptiles</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h4>À propos de l'auteur</h4>
+        <p>Ce site est un atlas naturaliste indépendant réalisé par Nathan Bordas, passionné de biodiversité dans le Loir-et-Cher.</p>
+        <p>📧 Contact : <a href="mailto:nathan.bordas04@gmail.com">nathan.bordas04@gmail.com</a></p>
