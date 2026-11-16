@@ -97,17 +97,22 @@
     </header>
 
     <nav>
-        <a href="index.html">Accueil</a>
-        <a href="faune.html" class="active">Faune</a>
-        <a href="flore.html">Flore</a>
-        <a href="champignons.html">Champignons</a>
-        <a href="#">Espaces Naturels</a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="faune.html">Faune</a>
+            <a href="flore.html">Flore</a>
+            <a href="champignons.html">Champignons</a>
+            <a href="espaces-naturels.html" class="active">Espaces Naturels</a>
+        </div>
+        
+        <!-- Barre de recherche connectée automatiquement à script.js ! -->
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Rechercher... (ex: Cerf)" autocomplete="off">
+            <div id="search-results"></div>
+        </div>
     </nav>
 
-    <main>
-        <div class="breadcrumb">
-            <a href="faune.html">← Retour à la Faune</a>
-        </div>
 
         <!-- Fiche d'identité principale -->
         <section class="species-header">
