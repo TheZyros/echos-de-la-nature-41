@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaces Naturels - Échos de la Nature (41)</title>
+    <!-- Appel de ton fichier de style central ! -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques uniquement à la page Espaces Naturels */
+        .spaces-banner { width: 100%; height: 450px; position: relative; background-color: #1e4620; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .spaces-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; opacity: 0.6; }
+        .spaces-banner h2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Georgia', serif; font-size: 3.8rem; font-style: italic; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); font-weight: normal; text-align: center; width: 90%; }
+
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .intro-section { background-color: #d8ebd9; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .intro-text-top { font-size: 1.15rem; color: #1e4620; font-weight: 500; text-align: justify; margin-bottom: 30px; }
+        .intro-text-top strong { color: #000000; font-weight: bold; }
+
+        .space-block { display: flex; align-items: center; gap: 40px; }
+        .space-image { flex: 1; height: 260px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .space-image img { width: 100%; height: 100%; object-fit: cover; }
+        .space-content { flex: 1.5; font-size: 1.1rem; color: #2d3748; text-align: justify; }
+        .space-content strong { color: #000000; font-weight: bold; }
+
+        /* Grille des espaces naturels centrée */
+        .grid-spaces { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 50px; }
+        .space-card { background: transparent; text-align: center; display: flex; flex-direction: column; align-items: center; width: calc(33.333% - 20px); min-width: 240px; }
+        
+        .space-image-wrapper { width: 100%; height: 180px; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 12px; }
+        .space-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .space-card h3 { font-size: 1.1rem; color: #1e4620; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.5px; }
+        
+        .btn-par-ici { background-color: #1a4d66; color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; padding: 10px 0; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background-color 0.2s; text-align: center; }
+        .btn-par-ici:hover { background-color: #113444; }
+
+        @media (max-width: 900px) {
+            .space-card { width: calc(50% - 20px); }
+        }
+        @media (max-width: 768px) {
+            .spaces-banner h2 { font-size: 2.6rem; }
+            .space-block { flex-direction: column; }
+            .space-image { width: 100%; height: 200px; }
+        }
+        @media (max-width: 500px) {
+            .space-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Échos de la Nature (41)</h1>
+        <p>Atlas de la biodiversité du Loir-et-Cher : Sologne, Perche et Vallées</p>
+    </header>
+
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="faune.html">Faune</a>
+            <a href="flore.html">Flore</a>
+            <a href="champignons.html">Champignons</a>
+            <a href="espaces-naturels.html" class="active">Espaces Naturels</a>
+        </div>
+        
+        <!-- Barre de recherche connectée automatiquement à script.js ! -->
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Rechercher... (ex: Cerf)" autocomplete="off">
+            <div id="search-results"></div>
+        </div>
+    </nav>
+
+    <!-- Grande Bannière -->
+    <div class="spaces-banner">
+        <img src="images/banniere-espaces.jpg" alt="Bannière Espaces Naturels du Loir-et-Cher">
+        <h2>Espaces Naturels</h2>
+    </div>
+
+    <main>
+        <!-- Section verte globale -->
+        <div class="intro-section">
+            <p class="intro-text-top">
+                Carrefour géographique unique, le Loir-et-Cher réunit sur un même département des paysages d'une diversité exceptionnelle. Des <strong>forêts mystérieuses de Sologne</strong> aux grèves sauvages de la Loire, en passant par les vallées encaissées du Perche, chaque milieu naturel façonne une biodiversité qui lui est propre.
+            </p>
+
+            <!-- Bloc photo et texte -->
+            <div class="space-block">
+                <div class="space-image">
+                    <img src="images/presentation-espaces.jpg" alt="Paysage protégé du Loir-et-Cher">
+                </div>
+                <div class="space-content">
+                    <p>Explorer la nature du 41, c'est passer en quelques kilomètres des <strong>mille étangs solognots</strong> — véritables sanctuaires pour les oiseaux d'eau — aux coteaux calcaires ensoleillés de la vallée du Loir où s'épanouissent des orchidées sauvages. De nombreux sites classés <strong>Natura 2000</strong> ou Espaces Naturels Sensibles permettent aujourd'hui de découvrir ces joyaux tout en préservant leur équilibre fragile.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grille des 6 grands espaces naturels -->
+        <div class="grid-spaces">
+            
+            <!-- 1. La Sologne -->
+            <div class="space-card">
+                <div class="space-image-wrapper">
+                    <img src="images/sologne.jpg" alt="La Sologne des Étangs et Forêts">
+                </div>
+                <h3>La Sologne</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 2. La Vallée de la Loire -->
+            <div class="space-card">
+                <div class="space-image-wrapper">
+                    <img src="images/loire.jpg" alt="La Vallée de la Loire Sauvage">
+                </div>
+                <h3>La Loire Sauvage</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 3. Le Perche -->
+            <div class="space-card">
+                <div class="space-image-wrapper">
+                    <img src="images/perche.jpg" alt="Collines et Bocages du Perche">
+                </div>
+                <h3>Le Perche Vendômois</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 4. Vallée du Cher et du Loir -->
+            <div class="space-card">
+                <div class="space-image-wrapper">
+                    <img src="images/beauce.jpg" alt="Vallées du Cher et du Loir">
+                </div>
+                <h3>Vallées du Cher et du Loir</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 5. Grandes Forêts Domaniales -->
+            <div class="space-card">
+                <div class="space-image-wrapper">
+                    <img src="images/forets-domaniales.jpg" alt="Grandes Forêts Domaniales">
+                </div>
+                <h3>Grandes Forêts du 41</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 6. Réserves et Sites Protégés -->
+            <div class="space-card">
+                <div class="space-image-wrapper">
+                    <img src="images/reserves.jpg" alt="Réserves Naturelles">
+                </div>
+                <h3>Réserves et Sites Protégés</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h4>À propos de l'auteur</h4>
+        <p>Ce site est un atlas naturaliste indépendant réalisé par Nathan Bordas, passionné de biodiversité dans le Loir-et-Cher.</p>
+        <p>📧 Contact : <a href="mailto:nathan.bordas04@gmail.com">nathan.bordas04@gmail.com</a></p>
+        <div class="copyright">
+            <p>&copy; 2026 - Échos de la Nature 41 - Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Appel de ton moteur de recherche central ! -->
+    <script src="script.js"></script>
+
+</body>
+</html>
