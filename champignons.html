@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champignons - Échos de la Nature (41)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7fafd; color: #2d3748; line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #1e4620, #2e6f40); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        header p { font-size: 1.1rem; opacity: 0.9; font-style: italic; }
+
+        nav { background-color: #ffffff; display: flex; justify-content: center; gap: 15px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #2e6f40; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; }
+        nav a:hover, nav a.active { background-color: #eaf5ec; color: #1e4620; }
+
+        /* Bannière Champignons */
+        .fungi-banner { width: 100%; height: 450px; position: relative; background-color: #1e4620; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .fungi-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; opacity: 0.6; }
+        .fungi-banner h2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Georgia', serif; font-size: 4rem; font-style: italic; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); font-weight: normal; }
+
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        /* Section de présentation verte */
+        .intro-section { background-color: #d8ebd9; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .intro-text-top { font-size: 1.15rem; color: #1e4620; font-weight: 500; text-align: justify; margin-bottom: 30px; }
+        .intro-text-top strong { color: #000000; font-weight: bold; }
+
+        /* Bloc photo et texte */
+        .fungi-block { display: flex; align-items: center; gap: 40px; }
+        .fungi-image { flex: 1; height: 260px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .fungi-image img { width: 100%; height: 100%; object-fit: cover; }
+        .fungi-content { flex: 1.5; font-size: 1.1rem; color: #2d3748; text-align: justify; }
+        .fungi-content strong { color: #000000; font-weight: bold; }
+
+        /* Petit encart de prudence mycologique */
+        .warning-box { background-color: #fffaf0; border-left: 4px solid #dd6b20; padding: 15px 20px; border-radius: 6px; margin-top: 25px; font-size: 0.95rem; color: #7b341e; }
+
+        /* Grille des catégories centrée */
+        .grid-fungi { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 50px; }
+        .fungi-card { background: transparent; text-align: center; display: flex; flex-direction: column; align-items: center; width: calc(33.333% - 20px); min-width: 240px; }
+        
+        .fungi-image-wrapper { width: 100%; height: 180px; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 12px; }
+        .fungi-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .fungi-card h3 { font-size: 1.1rem; color: #1e4620; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.5px; }
+        
+        .btn-par-ici { background-color: #1a4d66; color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; padding: 10px 0; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background-color 0.2s; text-align: center; }
+        .btn-par-ici:hover { background-color: #113444; }
+
+        @media (max-width: 900px) {
+            .fungi-card { width: calc(50% - 20px); }
+        }
+        @media (max-width: 768px) {
+            .fungi-banner h2 { font-size: 2.8rem; }
+            .fungi-block { flex-direction: column; }
+            .fungi-image { width: 100%; height: 200px; }
+        }
+        @media (max-width: 500px) {
+            .fungi-card { width: 100%; }
+        }
+
+        /* Pied de page */
+        footer { background-color: #1e4620; color: #f7fafd; padding: 40px 20px; text-align: center; margin-top: 60px; font-size: 0.95rem; border-top: 4px solid #2e6f40; }
+        footer h4 { color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+        footer p { max-width: 600px; margin: 0 auto 15px auto; opacity: 0.9; }
+        footer a { color: #81e6d9; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+        footer a:hover { color: #ffffff; text-decoration: underline; }
+        footer .copyright { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Échos de la Nature (41)</h1>
+        <p>Atlas de la biodiversité du Loir-et-Cher : Sologne, Perche et Vallées</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="faune.html">Faune</a>
+        <a href="flore.html">Flore</a>
+        <a href="champignons.html" class="active">Champignons</a>
+        <a href="#">Espaces Naturels</a>
+    </nav>
+
+    <!-- Grande Bannière -->
+    <div class="fungi-banner">
+        <img src="images/banniere-champignons.jpg" alt="Bannière Champignons des forêts du Loir-et-Cher">
+        <h2>Champignons</h2>
+    </div>
+
+    <main>
+        <!-- Section verte globale -->
+        <div class="intro-section">
+            <p class="intro-text-top">
+                Ni animaux, ni végétaux, les champignons forment un règne à part entière, indispensable à l'équilibre de nos forêts. Grâce à l'humidité des sous-bois de Sologne et aux grands massifs de chênes et de pins du Loir-et-Cher, des <strong>centaines d'espèces fongiques</strong> s'épanouissent dès les premières pluies d'automne.
+            </p>
+
+            <!-- Bloc photo et texte -->
+            <div class="fungi-block">
+                <div class="fungi-image">
+                    <img src="images/presentation-champignons.jpg" alt="Champignons en sous-bois">
+                </div>
+                <div class="fungi-content">
+                    <p>Sous nos pieds s'étend un immense réseau invisible appelé le <strong>mycélium</strong>. Il permet aux arbres de communiquer et de se nourrir. En surface apparaissent les célèbres cèpes de Bordeaux, girolles dorées et trompettes de la mort, mais aussi des espèces fascinantes aux couleurs vives comme la redoutable amanite tue-mouches ou les discrets polypores qui recyclent le bois mort.</p>
+                </div>
+            </div>
+
+            <!-- Message de prudence -->
+            <div class="warning-box">
+                ⚠️ <strong>Rappel naturaliste :</strong> Cet atlas a un but uniquement éducatif et d'observation. Ne consommez jamais un champignon sans l'avoir fait vérifier par un pharmacien ou un mycologue confirmé.
+            </div>
+        </div>
+
+        <!-- Grille des 6 catégories de champignons -->
+        <div class="grid-fungi">
+            
+            <!-- 1. Bolets et Cèpes -->
+            <div class="fungi-card">
+                <div class="fungi-image-wrapper">
+                    <img src="images/bolets.jpg" alt="Bolets et Cèpes">
+                </div>
+                <h3>Bolets et Cèpes</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 2. Amanites et Lépiotes -->
+            <div class="fungi-card">
+                <div class="fungi-image-wrapper">
+                    <img src="images/amanites.jpg" alt="Amanites et Lépiotes">
+                </div>
+                <h3>Amanites et Lépiotes</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 3. Girolles et Chanterelles -->
+            <div class="fungi-card">
+                <div class="fungi-image-wrapper">
+                    <img src="images/girolles.jpg" alt="Girolles et Chanterelles">
+                </div>
+                <h3>Girolles et Chanterelles</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 4. Russules et Lactaires -->
+            <div class="fungi-card">
+                <div class="fungi-image-wrapper">
+                    <img src="images/russules.jpg" alt="Russules et Lactaires">
+                </div>
+                <h3>Russules et Lactaires</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 5. Polypores et Bois mort -->
+            <div class="fungi-card">
+                <div class="fungi-image-wrapper">
+                    <img src="images/polypores.jpg" alt="Polypores et Champignons du bois">
+                </div>
+                <h3>Polypores et Bois mort</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 6. Vesses et Morilles -->
+            <div class="fungi-card">
+                <div class="fungi-image-wrapper">
+                    <img src="images/vesses.jpg" alt="Vesses-de-loup et Morilles">
+                </div>
+                <h3>Vesses et Morilles</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h4>À propos de l'auteur</h4>
+        <p>Ce site est un atlas naturaliste indépendant réalisé par Nathan Bordas, passionné de biodiversité dans le Loir-et-Cher.</p>
+        <p>📧 Contact : <a href="mailto:nathan.bordas04@gmail.com">nathan.bordas04@gmail.com</a></p>
+        <div class="copyright">
+            <p>&copy; 2026 - Échos de la Nature 41 - Tous droits réservés.</p>
+        </div>
+    </footer>
