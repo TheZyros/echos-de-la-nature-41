@@ -183,3 +183,63 @@
             <p>&copy; 2026 - Échos de la Nature 41 - Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- Moteur de recherche de l'Atlas -->
+    <script>
+        // Liste des pages et espèces de ton site (tu pourras en ajouter ici au fur et à mesure !)
+        const atlasIndex = [
+            { title: "Cerf élaphe (Cervus elaphus)", category: "🦌 Mammifères", url: "cerf-elaphe.html", keywords: "cerf biche faon brame sologne mammifere" },
+            { title: "Faune du Loir-et-Cher", category: "Rubrique", url: "faune.html", keywords: "animaux faune mammiferes oiseaux insectes amphibiens reptiles poissons araignees" },
+            { title: "Flore du Loir-et-Cher", category: "Rubrique", url: "flore.html", keywords: "plantes fleurs arbres bruyere fougeres mousses" },
+            { title: "Champignons", category: "Rubrique", url: "champignons.html", keywords: "champignons cepes bolets amanites girolles russules" }
+        ];
+
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            searchResults.innerHTML = '';
+
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const matches = atlasIndex.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.keywords.toLowerCase().includes(query)
+            );
+
+            if (matches.length > 0) {
+                matches.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.style.display = 'block';
+                    link.style.padding = '12px 15px';
+                    link.style.textDecoration = 'none';
+                    link.style.color = '#2d3748';
+                    link.style.borderBottom = '1px solid #edf2f7';
+                    link.innerHTML = `<strong style="color: #1e4620; display: block;">${item.title}</strong><span style="font-size: 0.8rem; color: #718096;">${item.category}</span>`;
+                    
+                    link.onmouseover = () => link.style.backgroundColor = '#eaf5ec';
+                    link.onmouseout = () => link.style.backgroundColor = 'white';
+                    
+                    searchResults.appendChild(link);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div style="padding: 12px 15px; color: #718096; font-size: 0.9rem;">Aucune espèce trouvée... 🌿</div>';
+                searchResults.style.display = 'block';
+            }
+        });
+
+        // Fermer les résultats si on clique ailleurs sur la page
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
