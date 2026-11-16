@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Cerf élaphe (Cervus elaphus) - Échos de la Nature (41)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7fafd; color: #2d3748; line-height: 1.7; }
+        
+        header { background: linear-gradient(135deg, #1e4620, #2e6f40); color: white; padding: 30px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.2rem; margin-bottom: 5px; font-weight: 700; letter-spacing: 1px; }
+        header p { font-size: 1rem; opacity: 0.9; font-style: italic; }
+
+        nav { background-color: #ffffff; display: flex; justify-content: center; gap: 15px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
+        nav a { color: #2e6f40; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; }
+        nav a:hover, nav a.active { background-color: #eaf5ec; color: #1e4620; }
+
+        main { max-width: 1050px; margin: 30px auto; padding: 0 20px; }
+
+        .breadcrumb { margin-bottom: 20px; font-size: 0.95rem; }
+        .breadcrumb a { color: #2e6f40; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Carte d'identité principale */
+        .species-header { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; gap: 35px; align-items: center; margin-bottom: 30px; border-top: 5px solid #2e6f40; }
+        .species-photo { flex: 1; height: 340px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .species-photo img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .species-identity { flex: 1.2; }
+        .species-badge { display: inline-block; background-color: #eaf5ec; color: #1e4620; padding: 5px 14px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; margin-bottom: 10px; }
+        .species-identity h2 { font-size: 2.5rem; color: #1e4620; margin-bottom: 5px; }
+        .scientific-name { font-size: 1.25rem; font-style: italic; color: #718096; margin-bottom: 20px; }
+
+        .taxo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #f0f7f4; padding: 15px; border-radius: 8px; font-size: 0.9rem; }
+        .taxo-grid div strong { color: #1e4620; }
+
+        /* Sommaire interactif */
+        .toc-box { background: #ffffff; border: 1px solid #cbd5e0; border-left: 5px solid #2e6f40; border-radius: 8px; padding: 20px 25px; margin-bottom: 35px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .toc-box h3 { color: #1e4620; margin-bottom: 12px; font-size: 1.2rem; }
+        .toc-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px 20px; list-style: none; }
+        .toc-list a { color: #2b6cb0; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+        .toc-list a:hover { color: #1e4620; text-decoration: underline; }
+
+        /* Sections des chapitres */
+        .chapter-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 30px; scroll-margin-top: 80px; }
+        .chapter-card h2 { color: #1e4620; font-size: 1.6rem; margin-bottom: 18px; border-bottom: 2px solid #eaf5ec; padding-bottom: 10px; }
+        .chapter-card h3 { color: #2e6f40; font-size: 1.2rem; margin: 22px 0 10px 0; }
+        .chapter-card p { margin-bottom: 14px; text-align: justify; color: #2d3748; }
+        .chapter-card ul { margin: 10px 0 18px 25px; color: #2d3748; }
+        .chapter-card li { margin-bottom: 6px; }
+
+        /* Tableaux comparatifs */
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+        .data-table th { background-color: #2e6f40; color: white; text-align: left; padding: 12px 15px; }
+        .data-table td { padding: 12px 15px; border-bottom: 1px solid #e2e8f0; }
+        .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+        /* Encadrés spéciaux */
+        .highlight-sologne { background-color: #d8ebd9; border-left: 5px solid #1e4620; padding: 25px; border-radius: 10px; margin-bottom: 30px; scroll-margin-top: 80px; }
+        .highlight-sologne h2 { color: #1e4620; margin-bottom: 15px; font-size: 1.6rem; }
+        .highlight-sologne h3 { color: #1e4620; margin: 18px 0 8px 0; font-size: 1.2rem; }
+        .highlight-sologne p { color: #1a202c; margin-bottom: 12px; text-align: justify; }
+
+        .warning-box { background-color: #fffaf0; border-left: 4px solid #dd6b20; padding: 18px 20px; border-radius: 6px; margin: 15px 0; color: #7b341e; }
+
+        /* Glossaire en colonnes */
+        .glossary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 15px; }
+        .glossary-item { background: #f7fafc; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #2e6f40; font-size: 0.95rem; }
+        .glossary-item strong { color: #1e4620; }
+
+        /* Bouton retour en haut */
+        .back-to-top { display: inline-block; margin-top: 15px; color: #2e6f40; font-weight: bold; text-decoration: none; font-size: 0.9rem; }
+        .back-to-top:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .species-header { flex-direction: column; }
+            .species-photo { width: 100%; height: 240px; }
+            .taxo-grid { grid-template-columns: 1fr; }
+            .data-table { display: block; overflow-x: auto; }
+        }
+
+        footer { background-color: #1e4620; color: #f7fafd; padding: 40px 20px; text-align: center; margin-top: 60px; font-size: 0.95rem; border-top: 4px solid #2e6f40; }
+        footer h4 { color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+        footer p { max-width: 600px; margin: 0 auto 15px auto; opacity: 0.9; }
+        footer a { color: #81e6d9; text-decoration: none; font-weight: bold; }
+        footer a:hover { color: #ffffff; text-decoration: underline; }
+        footer .copyright { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
+    </style>
+</head>
+<body id="top">
+
+    <header>
+        <h1>Échos de la Nature (41)</h1>
+        <p>Atlas de la biodiversité du Loir-et-Cher : Sologne, Perche et Vallées</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="faune.html" class="active">Faune</a>
+        <a href="flore.html">Flore</a>
+        <a href="champignons.html">Champignons</a>
+        <a href="#">Espaces Naturels</a>
+    </nav>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="faune.html">← Retour à la Faune</a>
+        </div>
+
+        <!-- Fiche d'identité principale -->
+        <section class="species-header">
+            <div class="species-photo">
+                <img src="images/cerf-elaphe.jpg" alt="Cerf élaphe (Cervus elaphus)">
+            </div>
+            
+                <span class="species-badge">🦌 Mammifères • Cervidae</span>
+                <h2>Cerf élaphe</h2>
+                <p class="scientific-name">Cervus elaphus</p>
+                
+                <div class="taxo-grid">
+                    <div><strong>Règne :</strong> Animalia</div>
+                    <div><strong>Embranchement :</strong> Chordata</div>
+                    <div><strong>Classe :</strong> Mammalia</div>
+                    <div><strong>Ordre :</strong> Artiodactyla</div>
+                    <div><strong>Famille :</strong> Cervidae</div>
+                    <div><strong>Sous-famille :</strong> Cervinae</div>
+                    <div><strong>Genre :</strong> Cervus</div>
+                    <div><strong>Espèce :</strong> <em>Cervus elaphus</em></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sommaire interactif -->
+        <div class="toc-box">
+            <h3>📑 Sommaire du dossier</h3>
+            <ul class="toc-list">
+                <li><a href="#chap1">1. Présentation générale</a></li>
+                <li><a href="#chap2">2. Classification scientifique</a></li>
+                <li><a href="#chap3">3. Description physique</a></li>
+                <li><a href="#chap4">4. Les bois du cerf</a></li>
+                <li><a href="#chap5">5. Habitat et répartition</a></li>
+                <li><a href="#chap6">6. Alimentation et régime alimentaire</a></li>
+                <li><a href="#chap7">7. Comportement et organisation sociale</a></li>
+                <li><a href="#chap8">8. Le brame : la période de reproduction</a></li>
+                <li><a href="#chap9">9. Reproduction et naissance</a></li>
+                <li><a href="#chap10">10. Le cycle de vie du cerf</a></li>
+                <li><a href="#chap11">11. Prédateurs et menaces</a></li>
+                <li><a href="#chap12">12. Le rôle écologique du cerf</a></li>
+                <li><a href="#chap13">13. Le cerf en Sologne : espèce emblématique</a></li>
+                <li><a href="#chap14">14. Comment reconnaître sa présence ?</a></li>
+                <li><a href="#chap15">15. Différences : cerf, chevreuil et daim</a></li>
+                <li><a href="#chap16">16. Le vocabulaire du cerf</a></li>
+                <li><a href="#chap17">17. Quelques faits remarquables</a></li>
+                <li><a href="#chap18">18. Observer le cerf dans son milieu</a></li>
+                <li><a href="#chap19">19. Protection et gestion des populations</a></li>
+                <li><a href="#chap20">20. Symbole de la nature solognote</a></li>
+            </ul>
