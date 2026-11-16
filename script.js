@@ -1,10 +1,9 @@
-// Liste centrale de toutes tes pages et fiches (Ajoute tes futures espèces ici !)
 const atlasIndex = [
-    { title: "Cerf élaphe (Cervus elaphus)", category: "🦌 Mammifères", url: "cerf-elaphe.html", keywords: "cerf biche faon brame sologne mammifere bois" },
+    { title: "Cerf élaphe (Cervus elaphus)", category: "🦌 Mammifères", url: "cerf-elaphe.html", keywords: "cerf biche faon brame sologne mammifere bois harde" },
     { title: "Faune du Loir-et-Cher", category: "Rubrique", url: "faune.html", keywords: "animaux faune mammiferes oiseaux insectes amphibiens reptiles poissons araignees" },
-    { title: "Flore du Loir-et-Cher", category: "Rubrique", url: "flore.html", keywords: "plantes fleurs arbres bruyere fougeres mousses" },
-    { title: "Champignons", category: "Rubrique", url: "champignons.html", keywords: "champignons cepes bolets amanites girolles russules" }
-    { title: "Espaces Naturels du 41", category: "Rubrique", url: "espaces-naturels.html", keywords: "espaces naturels sologne loire perche cher loir forets reserves" },
+    { title: "Flore du Loir-et-Cher", category: "Rubrique", url: "flore.html", keywords: "plantes fleurs arbres arbustes bruyere fougeres mousses lichens graminees roseaux marais" },
+    { title: "Champignons", category: "Rubrique", url: "champignons.html", keywords: "champignons cepes bolets amanites girolles chanterelles russules lactaires polypores morilles" },
+    { title: "Espaces Naturels du 41", category: "Rubrique", url: "espaces-naturels.html", keywords: "espaces naturels sologne loire perche cher loir forets reserves etangs" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -47,4 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
             searchResults.style.display = 'none';
         }
     });
+});
 });
