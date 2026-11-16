@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flore - Échos de la Nature (41)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7fafd; color: #2d3748; line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #1e4620, #2e6f40); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
+        header p { font-size: 1.1rem; opacity: 0.9; font-style: italic; }
+
+        nav { background-color: #ffffff; display: flex; justify-content: center; gap: 15px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #2e6f40; text-decoration: none; font-weight: 600; padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; }
+        nav a:hover, nav a.active { background-color: #eaf5ec; color: #1e4620; }
+
+        /* Bannière Flore */
+        .flore-banner { width: 100%; height: 450px; position: relative; background-color: #1e4620; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .flore-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: 0.6; }
+        .flore-banner h2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Georgia', serif; font-size: 4rem; font-style: italic; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); font-weight: normal; }
+
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        /* Section de présentation verte */
+        .intro-section { background-color: #d8ebd9; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .intro-text-top { font-size: 1.15rem; color: #1e4620; font-weight: 500; text-align: justify; margin-bottom: 30px; }
+        .intro-text-top strong { color: #000000; font-weight: bold; }
+
+        /* Bloc photo et texte */
+        .plant-block { display: flex; align-items: center; gap: 40px; }
+        .plant-image { flex: 1; height: 260px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .plant-image img { width: 100%; height: 100%; object-fit: cover; }
+        .plant-content { flex: 1.5; font-size: 1.1rem; color: #2d3748; text-align: justify; }
+        .plant-content strong { color: #000000; font-weight: bold; }
+
+        /* Grille des catégories centrée */
+        .grid-plants { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 50px; }
+        .plant-card { background: transparent; text-align: center; display: flex; flex-direction: column; align-items: center; width: calc(33.333% - 20px); min-width: 240px; }
+        
+        .plant-image-wrapper { width: 100%; height: 180px; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 12px; }
+        .plant-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .plant-card h3 { font-size: 1.1rem; color: #1e4620; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.5px; }
+        
+        .btn-par-ici { background-color: #1a4d66; color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; padding: 10px 0; width: 100%; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background-color 0.2s; text-align: center; }
+        .btn-par-ici:hover { background-color: #113444; }
+
+        @media (max-width: 900px) {
+            .plant-card { width: calc(50% - 20px); }
+        }
+        @media (max-width: 768px) {
+            .flore-banner h2 { font-size: 2.8rem; }
+            .plant-block { flex-direction: column; }
+            .plant-image { width: 100%; height: 200px; }
+        }
+        @media (max-width: 500px) {
+            .plant-card { width: 100%; }
+        }
+
+        /* Pied de page */
+        footer { background-color: #1e4620; color: #f7fafd; padding: 40px 20px; text-align: center; margin-top: 60px; font-size: 0.95rem; border-top: 4px solid #2e6f40; }
+        footer h4 { color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+        footer p { max-width: 600px; margin: 0 auto 15px auto; opacity: 0.9; }
+        footer a { color: #81e6d9; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+        footer a:hover { color: #ffffff; text-decoration: underline; }
+        footer .copyright { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Échos de la Nature (41)</h1>
+        <p>Atlas de la biodiversité du Loir-et-Cher : Sologne, Perche et Vallées</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="faune.html">Faune</a>
+        <a href="flore.html" class="active">Flore</a>
+        <a href="#">Champignons</a>
+        <a href="#">Espaces Naturels</a>
+    </nav>
+
+    <!-- Grande Bannière -->
+    <div class="flore-banner">
+        <img src="images/banniere-flore.jpg" alt="Bannière Flore sauvage du Loir-et-Cher">
+        <h2>Flore</h2>
+    </div>
+
+    <main>
+        <!-- Section verte globale -->
+        <div class="intro-section">
+            <p class="intro-text-top">
+                Des grandes futaies de chênes aux roselières des étangs, la flore du Loir-et-Cher est d'une variété remarquable. Notre département abrite plus de <strong>1 400 espèces végétales</strong> sauvages, adaptées aux sols sableux de Sologne, aux coteaux calcaires de la Loire ou aux prairies humides du Perche.
+            </p>
+
+            <!-- Bloc photo et texte -->
+            <div class="plant-block">
+                <div class="plant-image">
+                    <img src="images/presentation-flore.jpg" alt="Flore sauvage de Sologne">
+                </div>
+                <div class="plant-content">
+                    <p>Au fil des saisons, les paysages changent de visage. Au printemps, les sous-bois se tapissent de jacinthes des bois et d'anémones sylvie. En été, les <strong>landes de Sologne</strong> s'embrasent du rose éclatant des bruyères et du jaune d'or des ajoncs, tandis que les étangs dévoilent nénuphars et plantes carnivores discrètes comme la rossolis.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grille des 6 catégories de plantes -->
+        <div class="grid-plants">
+            
+            <!-- 1. Arbres et Arbustes -->
+            <div class="plant-card">
+                <div class="plant-image-wrapper">
+                    <img src="images/arbres.jpg" alt="Arbres et Arbustes">
+                </div>
+                <h3>Arbres et Arbustes</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 2. Fleurs Sauvages -->
+            <div class="plant-card">
+                <div class="plant-image-wrapper">
+                    <img src="images/fleurs.jpg" alt="Fleurs Sauvages">
+                </div>
+                <h3>Fleurs Sauvages</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 3. Plantes Aquatiques -->
+            <div class="plant-card">
+                <div class="plant-image-wrapper">
+                    <img src="images/aquatiques.jpg" alt="Plantes des Étangs et Marais">
+                </div>
+                <h3>Étangs et Marais</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 4. Fougères et Prêles -->
+            <div class="plant-card">
+                <div class="plant-image-wrapper">
+                    <img src="images/fougeres.jpg" alt="Fougères et Prêles">
+                </div>
+                <h3>Fougères et Prêles</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 5. Mousses et Lichens -->
+            <div class="plant-card">
+                <div class="plant-image-wrapper">
+                    <img src="images/mousses.jpg" alt="Mousses et Lichens">
+                </div>
+                <h3>Mousses et Lichens</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+            <!-- 6. Graminées et Roseaux -->
+            <div class="plant-card">
+                <div class="plant-image-wrapper">
+                    <img src="images/graminees.jpg" alt="Graminées et Roseaux">
+                </div>
+                <h3>Graminées et Roseaux</h3>
+                <a href="#" class="btn-par-ici">Par Ici !</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h4>À propos de l'auteur</h4>
+        <p>Ce site est un atlas naturaliste indépendant réalisé par Nathan Bordas, passionné de biodiversité dans le Loir-et-Cher.</p>
+        <p>📧 Contact : <a href="mailto:nathan.bordas04@gmail.com">nathan.bordas04@gmail.com</a></p>
+        <div class="copyright">
+            <p>&copy; 2026 - Échos de la Nature 41 - Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
