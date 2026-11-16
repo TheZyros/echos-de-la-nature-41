@@ -4,6 +4,7 @@ const atlasIndex = [
     { title: "Faune du Loir-et-Cher", category: "Rubrique", url: "faune.html", keywords: "animaux faune mammiferes oiseaux insectes amphibiens reptiles poissons araignees" },
     { title: "Flore du Loir-et-Cher", category: "Rubrique", url: "flore.html", keywords: "plantes fleurs arbres bruyere fougeres mousses" },
     { title: "Champignons", category: "Rubrique", url: "champignons.html", keywords: "champignons cepes bolets amanites girolles russules" }
+    { title: "Espaces Naturels du 41", category: "Rubrique", url: "espaces-naturels.html", keywords: "espaces naturels sologne loire perche cher loir forets reserves" },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
