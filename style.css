@@ -6,6 +6,8 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 header { background: linear-gradient(135deg, #1e4620, #2e6f40); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: 1px; }
 header p { font-size: 1.1rem; opacity: 0.9; font-style: italic; }
+.header-content { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.site-logo { width: 85px; height: 85px; border-radius: 50%; object-fit: cover; border: 3px solid #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); background-color: white; }
 
 /* Menu et Barre de recherche */
 nav { background-color: #ffffff; display: flex; justify-content: center; align-items: center; gap: 15px; padding: 15px 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
