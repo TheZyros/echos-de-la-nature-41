@@ -6,12 +6,10 @@ const atlasIndex = [
     { title: "Espaces Naturels du 41", category: "Rubrique", url: "espaces-naturels.html", keywords: "espaces naturels sologne loire perche cher loir forets reserves etangs" }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
 
-    if (!searchInput || !searchResults) return;
-
+if (searchInput && searchResults) {
     searchInput.addEventListener('input', function() {
         const query = this.value.toLowerCase().trim();
         searchResults.innerHTML = '';
@@ -46,5 +44,4 @@ document.addEventListener('DOMContentLoaded', () => {
             searchResults.style.display = 'none';
         }
     });
-});
-});
+}
